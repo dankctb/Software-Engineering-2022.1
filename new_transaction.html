@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up Page</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #eee;
+        font-family: Arial, sans-serif;
+      }
+
+      h2 {
+        text-align: center;
+        color: #fff;
+      }
+      p {
+        text-align: center;
+        color: #fff;
+      }
+
+      label {
+        display: block;
+        margin-top: 20px;
+        color: #eee;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="password"],
+      input[type="submit"] {
+        background-color: #333;
+        color: #eee;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block; /* added style to center the button */
+        margin: auto; /* added style to center the button */
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      form {
+        max-width: 400px;
+        margin: auto;
+      }
+
+      .login {
+        margin-top: 80px; /* added style to add space between the login and signup parts */
+      }
+    </style>
+  </head>
+
+
+  <body>
+    <h2>Add a new transaction </h2>
+    <p>Your account has reached max number of photos for OCR</p><br>
+    <form method="POST" onsubmit="return validateForm()" action="/new_transaction"  >
+
+      <label for="billing">Billing information:</label><br>
+      <input type="number" id="billing" name="billing">
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <script>
+      function validateForm() {
+        // Get the username and password inputs
+        var billing = document.getElementById("billing").value;
+
+        // Validate the inputs
+        if ((billing == "") || (billing < 0) || (billing > 2) ) {
+          alert("Billing information must be between 0 and 2 for each kind of premium package");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

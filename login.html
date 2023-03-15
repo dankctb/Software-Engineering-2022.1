@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <script>
+      function validateForm() {
+        // Get the username and password inputs
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Validate the inputs
+        if (username == "") {
+          alert("Username must be filled out");
+          return false;
+        }
+        if (password == "") {
+          alert("Password must be filled out");
+          return false;
+        }
+        return true;
+      }
+    </script>
+        <style>
+          body {
+            background-color: #222;
+            color: #eee;
+            font-family: Arial, sans-serif;
+          }
+    
+          h1 {
+            text-align: center;
+            color: #fff;
+          }
+    
+          label {
+            display: block;
+            margin-top: 20px;
+            color: #eee;
+          }
+    
+          input[type="text"],
+          input[type="number"],
+          input[type="password"],
+          input[type="submit"] {
+            background-color: #333;
+            color: #eee;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+          }
+    
+          input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+          }
+    
+          button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block; /* added style to center the button */
+            margin: auto; /* added style to center the button */
+          }
+    
+          button:hover {
+            background-color: #3e8e41;
+          }
+    
+          form {
+            max-width: 400px;
+            margin: auto;
+          }
+    
+          .login {
+            margin-top: 80px; 
+          }
+        </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+    <form action="/cre_check" method="post" onsubmit="return validateForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <input type="submit" value="Login">
+    </form>
+  </body>
+</html>
